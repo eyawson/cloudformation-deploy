@@ -31,8 +31,6 @@ This needs to be done in an automated fashion so that the infrastructure can be 
 
 ## Extra Help
 
-1. While your instances are in public subnets, you'll also need the
-  SSH port open (port 22) for your access, in case you need to troubleshoot your instances.
+1. While your instances are in public subnets, you'll also need the SSH port open (port 22) for your access, in case you need to troubleshoot your instances.
 
-2. Log information for UserData scripts is located in this file
-   cloud-init-output.log under the folder /var/log
+2. Log information for UserData scripts is located in this file: cloud-init-output.log under the folder: /var/log

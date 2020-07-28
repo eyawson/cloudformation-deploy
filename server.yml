@@ -6,7 +6,7 @@ Resources:
     Type: AWS::IAM::InstanceProfile
     Properties: 
       Roles:
-        - UdacityS3ReadOnlyEC2
+        - s3ReadOnlyRole
   
           #!/bin/bash
           apt-get update -y
