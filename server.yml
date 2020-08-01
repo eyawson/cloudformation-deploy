@@ -1,6 +1,8 @@
 Parameters:
   EnvironmentName:
-    Description: We will fix this shortly
+    Description:
+      Server configuration for the Udacity Udagram app. Rewquires a minimum 2 (total 4) servers in each AZ to run.
+      Servers are not publicly accessible except through ALB.
     Type: String
 
 # whatever you consider a changing value, put it as a parameter instead of hard-coding it into your script
@@ -38,6 +40,7 @@ Resources:
           FromPort: 8080
           ToPort: 8080
           CidrIp: 0.0.0.0/0
+          # delete ssh when ready to submit !important
         - IpProtocol: tcp
           FromPort: 22
           ToPort: 22
@@ -117,7 +120,7 @@ Resources:
   WebAppTargetGroup:
     Type: AWS::ElasticLoadBalancingV2::TargetGroup
     Properties:
-      HealthCheckIntervalSeconds: 10
+      HealthCheckIntervalSeconds: 100
       HealthCheckPath: /
       HealthCheckProtocol: HTTP
       HealthCheckTimeoutSeconds: 8
@@ -128,7 +131,7 @@ Resources:
       VpcId:
         Fn::ImportValue:
           Fn::Sub: "${EnvironmentName}-VPCID"
-# Outputs:
+Outputs:
 #   {
 #     "URL":
 #       {
