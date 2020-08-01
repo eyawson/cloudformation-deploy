@@ -132,20 +132,7 @@ Resources:
         Fn::ImportValue:
           Fn::Sub: "${EnvironmentName}-VPCID"
 Outputs:
-#   {
-#     "URL":
-#       {
-#         "Description": "The URL of the website",
-#         "Value":
-#           {
-#             "Fn::Join":
-#               [
-#                 "",
-#                 [
-#                   "http://",
-#                   { "Fn::GetAtt": ["ElasticLoadBalancer", "DNSName"] },
-#                 ],
-#               ],
-#           },
-#       },
-#   }
+  URL:
+    Description: "The URL of the Udagram App"
+    "Value":
+      Fn::Join: ["", ["http://", { "Fn::GetAtt": ["WebAppLB", "DNSName"] }]]
