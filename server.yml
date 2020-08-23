@@ -73,6 +73,7 @@ Resources:
         - DeviceName: "/dev/sdk"
           Ebs:
             VolumeSize: "10"
+      IamInstanceProfile: !Ref "ProfileWithRolesForOurApp"
 
   WebAppGroup:
     Type: AWS::AutoScaling::AutoScalingGroup
@@ -81,6 +82,7 @@ Resources:
         - Fn::ImportValue: !Sub "${EnvironmentName}-PRIV-NETS"
       LaunchConfigurationName:
         Ref: WebAppLaunchConfig
+        # Can use variables below
       MinSize: "4"
       MaxSize: "6"
       TargetGroupARNs:
