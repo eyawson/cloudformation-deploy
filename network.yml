@@ -1,5 +1,5 @@
 Description: >
-  This cloudformation template works wonders \o/
+  This cloudformation template builds out the network infra.
 
 Parameters:
   EnvironmentName:

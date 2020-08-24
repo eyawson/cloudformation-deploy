@@ -1,7 +1,7 @@
 Parameters:
   EnvironmentName:
     Description:
-      Server configuration for the Udacity Udagram app. Rewquires a minimum 2 (total 4) servers in each AZ to run.
+      Server configuration for the Udacity Udagram app. Requires a minimum 2 (total 4) servers in each AZ to run.
       Servers are not publicly accessible except through ALB.
     Type: String
 
@@ -32,7 +32,7 @@ Resources:
   ServerSecGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupDescription: Allow http to our hosts and SSH from local only
+      GroupDescription: Allow http to our hosts
       VpcId:
         Fn::ImportValue: !Sub "${EnvironmentName}-VPCID"
       SecurityGroupIngress:
@@ -40,11 +40,7 @@ Resources:
           FromPort: 8080
           ToPort: 8080
           CidrIp: 0.0.0.0/0
-          # delete ssh when ready to submit !important
-        - IpProtocol: tcp
-          FromPort: 22
-          ToPort: 22
-          CidrIp: 0.0.0.0/0
+          # ssh was here
       SecurityGroupEgress:
         - IpProtocol: tcp
           FromPort: 0
